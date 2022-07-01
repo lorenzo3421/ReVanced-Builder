@@ -21,6 +21,9 @@ This project is just automation for an already existing process.
 
 Latest Youtube APK (You'll have to get it on your own)
 
+If you want to login using Google, you'll need [MicroG](https://github.com/TeamVanced/VancedMicroG/releases/latest)
+installed on your device
+
 ## Usage
 
 - Download the repo:
