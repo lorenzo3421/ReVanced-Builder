@@ -1,0 +1,7 @@
+args==0.1.0
+certifi==2022.6.15
+charset-normalizer==2.1.0
+clint==0.5.1
+idna==3.3
+requests==2.28.1
+urllib3==1.26.9
