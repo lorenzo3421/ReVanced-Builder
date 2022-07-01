@@ -16,7 +16,8 @@ This project is just automation for an already existing process.
 ## Requirements
 
 [Python](https://www.python.org/downloads/)
-[Zulu JDK](https://www.azul.com/downloads/?package=jdk#download-openjdk)
+
+[Zulu JDK](https://www.azul.com/downloads/?package=jdk#download-openjdk) (Tested with Zulu JDK 17)
 
 ## Usage
 
