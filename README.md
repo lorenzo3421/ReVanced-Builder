@@ -13,6 +13,14 @@ I am not affliated with any of above.
 
 This project is just automation for an already existing process.
 
+## Requirements
+
+[Python](https://www.python.org/downloads/)
+
+[Zulu JDK](https://www.azul.com/downloads/?package=jdk#download-openjdk) (Tested with Zulu JDK 17)
+
+Latest Youtube APK (You'll have to get it on your own)
+
 ## Usage
 
 - Download the [Python Script](https://github.com/lorenzo3421/revanced-builder/releases/latest)
