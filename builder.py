@@ -68,20 +68,20 @@ def prepare_build():
     java_path = get_jdk()
 
     # ReVanced Tools
-    get_revanced_tools("revanced-patches", "revanced-patches-{version}.jar")
-    get_revanced_tools(
-        "revanced-cli", "revanced-cli-{version}-all.jar", "revanced-cli-all.jar"
-    )
-    get_revanced_tools(
-        "revanced-integrations", "app-release-unsigned.apk", "{repo_filename}"
-    )
+    # get_revanced_tools("revanced-patches", "revanced-patches-{version}.jar")
+    # get_revanced_tools(
+    #     "revanced-cli", "revanced-cli-{version}-all.jar", "revanced-cli-all.jar"
+    # )
+    # get_revanced_tools(
+    #     "revanced-integrations", "app-release-unsigned.apk", "{repo_filename}"
+    # )
 
     # Youtube APK
     print(
         "\nEnsure you have the latest version of Youtube APK "
         + "(or Youtube Music APK) exactly at this path:"
     )
-    print(os.getcwd() + "\\youtube.apk")
+    print(os.getcwd() + "\\youtube.apk\n")
 
     input("Press enter to build ReVanced.")
     build_revanced()
@@ -97,8 +97,8 @@ def build_revanced():
             exclude_patches = " ".join(["-e " + line for line in lines])
 
     os.system(
-        f"{java_path} -jar revanced-cli-all.jar -a youtube.apk -c -o ReVanced.apk -b revanced-patches.jar"
-        + "-m app-release-unsigned.apk {exclude_patches}"
+        f"{java_path} -jar revanced-cli-all.jar -a youtube.apk -c -o ReVanced.apk -b revanced-patches.jar "
+        + f"-m app-release-unsigned.apk {exclude_patches}"
     )
 
     print("Done.")
