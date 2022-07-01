@@ -23,8 +23,13 @@ Latest Youtube APK (You'll have to get it on your own)
 
 ## Usage
 
-- Download the [Python Script](https://github.com/lorenzo3421/revanced-builder/releases/latest)
-- Run it in a Terminal (Can't be easier that this)
+- Download the repo:
+```
+git clone https://github.com/lorenzo3421/ReVanced-Builder
+cd ReVanced-Builder
+pip install -r requirements.txt
+```
+- Run it in a Terminal (Can't be easier than this)
 ```
 builder.py
 ```
