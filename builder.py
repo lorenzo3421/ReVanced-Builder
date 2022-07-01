@@ -68,13 +68,13 @@ def prepare_build():
     java_path = get_jdk()
 
     # ReVanced Tools
-    # get_revanced_tools("revanced-patches", "revanced-patches-{version}.jar")
-    # get_revanced_tools(
-    #     "revanced-cli", "revanced-cli-{version}-all.jar", "revanced-cli-all.jar"
-    # )
-    # get_revanced_tools(
-    #     "revanced-integrations", "app-release-unsigned.apk", "{repo_filename}"
-    # )
+    get_revanced_tools("revanced-patches", "revanced-patches-{version}.jar")
+    get_revanced_tools(
+        "revanced-cli", "revanced-cli-{version}-all.jar", "revanced-cli-all.jar"
+    )
+    get_revanced_tools(
+        "revanced-integrations", "app-release-unsigned.apk", "{repo_filename}"
+    )
 
     # Youtube APK
     print(
