@@ -95,6 +95,8 @@ def build_revanced():
         with open("exclude_patches.lorf", "r") as f:
             lines = f.read().splitlines()
             exclude_patches = " ".join(["-e " + line for line in lines])
+    else:
+        exclude_patches = ""
 
     os.system(
         f"{java_path} -jar revanced-cli-all.jar -a youtube.apk -c -o ReVanced.apk -b revanced-patches.jar "
