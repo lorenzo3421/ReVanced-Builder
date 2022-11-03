@@ -14,13 +14,11 @@ from clint.textui import progress
 
 # Get all tools needed from ReVanced's github repos
 def get_revanced_tools(tool_name, repo_filename, output=None):
-    # Get HTML from latest version of tool
-    r = requests.get(f"https://github.com/revanced/{tool_name}/releases/latest")
+    # Get Info in JSON about tool for version
+    r = requests.get(f"https://api.github.com/repos/revanced/{tool_name}/releases")
 
-    # Get Version from HTML
-    version = r.text.split(f"/revanced/{tool_name}/releases/download/")[1].split("/")[0]
-    # Remove the "v" from the version
-    version = version[1:]
+    # Get Version from JSON and remove the "v"
+    version = r.json()[0]["tag_name"][1:]
 
     # Download the tool
     if output is None:
