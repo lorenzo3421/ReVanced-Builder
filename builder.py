@@ -27,7 +27,7 @@ def get_revanced_tools(tool_name, repo_filename, output=None):
     print(f"{output}:")
 
     # If the tool is already installed dont download it again
-    if os.path.exists(output):
+    if os.path.isfile(output):
         return
     
     # Code from https://stackoverflow.com/a/20943461/10117351 #
