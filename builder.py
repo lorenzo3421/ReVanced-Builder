@@ -26,6 +26,10 @@ def get_revanced_tools(tool_name, repo_filename, output=None):
     output = output.replace("{repo_filename}", repo_filename)
     print(f"{output}:")
 
+    # If the tool is already installed dont download it again
+    if os.path.exists(output):
+        return
+    
     # Code from https://stackoverflow.com/a/20943461/10117351 #
     r = requests.get(
         f"https://github.com/revanced/{tool_name}/releases/download/v{version}/{repo_filename}".replace(
