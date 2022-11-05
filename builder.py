@@ -9,8 +9,13 @@
 
 import os
 import requests
+import json
 from clint.textui import progress
 
+config = {
+    "java_path": None,
+    "versions": {}
+}
 
 # Get all tools needed from ReVanced's github repos
 def get_revanced_tools(tool_name, repo_filename, output=None):
@@ -27,8 +32,9 @@ def get_revanced_tools(tool_name, repo_filename, output=None):
     print(f"{output}:")
 
     # If the tool is already installed dont download it again
-    if os.path.isfile(output):
-        print("Tool already installed")
+    global config
+    if output in config["versions"] and config["versions"][output] == version:
+        print("Tool already installed in this version. skipping")
         return
     
     # Code from https://stackoverflow.com/a/20943461/10117351 #
@@ -46,26 +52,36 @@ def get_revanced_tools(tool_name, repo_filename, output=None):
             if chunk:
                 f.write(chunk)
                 f.flush()
+    config["versions"][output] = version
+    with open("config.json", "w") as f:
+        json.dump(config, f)
     # ------------------------------------------------------- #
 
 
 # Get the Zulu JDK 17 path
 def get_jdk():
-    if os.path.isfile("java_path.lorf"):
-        with open("java_path.lorf", "r") as f:
-            return f.read()
-    else:
+    global config
+    if config["java_path"] == None:
         print("Please drag in this terminal the Zulu JDK 17 java.exe file")
         print("(java.exe can be found in the bin folder)")
         print("After dragging in the file, press enter.")
         path = input("JDK Path: ")
-        with open("java_path.lorf", "w") as f:
-            f.write(path)
+        config["java_path"] = path
+        with open("config.json", "w") as f:
+            json.dump(config, f)
         return path
 
 
 # Prepare to build
 def prepare_build():
+    # get config
+    global config
+    if os.path.isfile("config.json"):
+        with open("config.json", "r") as f:
+            config = json.load(f)
+    else:
+        with open("config.json", "w") as f:
+            json.dump(config, f)
     # JDK
     global java_path
     java_path = get_jdk()
