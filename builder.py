@@ -69,7 +69,7 @@ def get_jdk():
         config["java_path"] = path
         with open("config.json", "w") as f:
             json.dump(config, f)
-        return path
+    return config["java_path"]
 
 
 # Prepare to build
